@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
             myButtonObject myButton1 = new myButtonObject();
             EventHandler myHandler = new EventHandler(myButton_Click_1);
             myButton1.Click += myHandler;
-            myButton1.Location = new System.Drawing.Point(80, 340);
+            myButton1.Location = new System.Drawing.Point(120, 360);
             myButton1.Size = new System.Drawing.Size(101, 101);
             this.Controls.Add(myButton1);
 
@@ -33,7 +33,7 @@ namespace WindowsFormsApplication1
             myButtonObject myButton2 = new myButtonObject();
             EventHandler myHandler2 = new EventHandler(myButton2_Click);
             myButton2.Click += myHandler2;
-            myButton2.Location = new System.Drawing.Point(280, 340);
+            myButton2.Location = new System.Drawing.Point(330, 360);
             myButton2.Size = new System.Drawing.Size(101, 101);
             this.Controls.Add(myButton2);
 
@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1
             myButtonObject myButton3 = new myButtonObject();
             EventHandler myHandler3 = new EventHandler(myButton3_Click);
             myButton3.Click += myHandler3;
-            myButton3.Location = new System.Drawing.Point(480, 340);
+            myButton3.Location = new System.Drawing.Point(535, 360);
             myButton3.Size = new System.Drawing.Size(101, 101);
             this.Controls.Add(myButton3);
         }
@@ -79,6 +79,30 @@ namespace WindowsFormsApplication1
         private void myButton3_Click(object sender, EventArgs e)
         {
             Process.Start("AnimatedGameSummative.exe");
+        }
+
+        private void theUltimateArcade_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics draw = this.CreateGraphics();
+            SolidBrush brush = new SolidBrush(Color.Black);
+            Pen pen = new Pen(Color.Red, 3);
+
+            draw.FillRectangle(brush, 30, 20, 685, 325);
+            draw.DrawRectangle(pen, 30, 20, 685, 325);
+
+            draw.DrawRectangle(pen, 85, 100, 170, 141);
+            draw.DrawRectangle(pen, 290, 100, 180, 141);
+            draw.DrawRectangle(pen, 495, 100, 170, 141);
+            //snakeLabel.Visible = true;
+            //pongLabel.Visible = true;
+            //pacLabel.Visible = true;
+        }
+
+        private void theUltimateArcade_Load(object sender, EventArgs e)
+        {
+            //snakeLabel.Visible = false;
+            //pongLabel.Visible = false;
+            //pacLabel.Visible = false;
         }
     }
 }
