@@ -23,8 +23,9 @@ namespace WindowsFormsApplication1
 
             //snake game button
             myButtonObject myButton1 = new myButtonObject();
-            EventHandler myHandler = new EventHandler(myButton_Click_1);
+            EventHandler myHandler = new EventHandler(myButton1_Click);
             myButton1.Click += myHandler;
+            //myButton1.MouseHover += myHandler;
             myButton1.Location = new System.Drawing.Point(120, 360);
             myButton1.Size = new System.Drawing.Size(101, 101);
             this.Controls.Add(myButton1);
@@ -44,6 +45,8 @@ namespace WindowsFormsApplication1
             myButton3.Location = new System.Drawing.Point(535, 360);
             myButton3.Size = new System.Drawing.Size(101, 101);
             this.Controls.Add(myButton3);
+
+            timer1.Start();
         }
 
         public class myButtonObject : UserControl
@@ -66,43 +69,52 @@ namespace WindowsFormsApplication1
             }
         }
         
-        private void myButton_Click_1(object sender, EventArgs e)
+        private void myButton1_Click(object sender, EventArgs e)
         {
             Process.Start("Snake Game.exe");
+            timer1.Stop();
         }
 
         private void myButton2_Click(object sender, EventArgs e)
         {
             Process.Start("Pong.exe");
+            timer1.Stop();
         }
-
+                       
         private void myButton3_Click(object sender, EventArgs e)
         {
             Process.Start("AnimatedGameSummative.exe");
+            timer1.Stop();
         }
 
         private void theUltimateArcade_Paint(object sender, PaintEventArgs e)
         {
             Graphics draw = this.CreateGraphics();
-            SolidBrush brush = new SolidBrush(Color.Black);
+            SolidBrush brush = new SolidBrush(Color.DarkSlateGray);
             Pen pen = new Pen(Color.Red, 3);
+            Pen pen2 = new Pen(Color.Silver, 3);
 
             draw.FillRectangle(brush, 30, 20, 685, 325);
             draw.DrawRectangle(pen, 30, 20, 685, 325);
 
-            draw.DrawRectangle(pen, 85, 100, 170, 141);
-            draw.DrawRectangle(pen, 290, 100, 180, 141);
-            draw.DrawRectangle(pen, 495, 100, 170, 141);
-            //snakeLabel.Visible = true;
-            //pongLabel.Visible = true;
-            //pacLabel.Visible = true;
+            draw.DrawRectangle(pen2, 85, 100, 170, 141);
+            draw.DrawRectangle(pen2, 290, 100, 180, 141);
+            draw.DrawRectangle(pen2, 495, 100, 170, 141);
         }
 
-        private void theUltimateArcade_Load(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            //snakeLabel.Visible = false;
-            //pongLabel.Visible = false;
-            //pacLabel.Visible = false;
+            if (titleLabel.ForeColor == Color.DarkSlateGray)
+            {
+                titleLabel.ForeColor = Color.Silver;
+                timer1.Interval = 750;
+            }
+
+            else
+            {
+                titleLabel.ForeColor = Color.DarkSlateGray;
+                timer1.Interval = 750;
+            }
         }
     }
 }

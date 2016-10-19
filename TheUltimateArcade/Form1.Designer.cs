@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(theUltimateArcade));
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -35,6 +36,8 @@
             this.snakeLabel = new System.Windows.Forms.Label();
             this.pongLabel = new System.Windows.Forms.Label();
             this.pacLabel = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -73,38 +76,54 @@
             // snakeLabel
             // 
             this.snakeLabel.AutoSize = true;
-            this.snakeLabel.BackColor = System.Drawing.Color.Black;
-            this.snakeLabel.Font = new System.Drawing.Font("Rosewood Std Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.snakeLabel.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.snakeLabel.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.snakeLabel.ForeColor = System.Drawing.Color.Red;
             this.snakeLabel.Location = new System.Drawing.Point(131, 249);
             this.snakeLabel.Name = "snakeLabel";
-            this.snakeLabel.Size = new System.Drawing.Size(79, 22);
+            this.snakeLabel.Size = new System.Drawing.Size(91, 22);
             this.snakeLabel.TabIndex = 7;
             this.snakeLabel.Text = "S N A K E";
             // 
             // pongLabel
             // 
             this.pongLabel.AutoSize = true;
-            this.pongLabel.BackColor = System.Drawing.Color.Black;
-            this.pongLabel.Font = new System.Drawing.Font("Rosewood Std Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pongLabel.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pongLabel.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pongLabel.ForeColor = System.Drawing.Color.Red;
             this.pongLabel.Location = new System.Drawing.Point(350, 249);
             this.pongLabel.Name = "pongLabel";
-            this.pongLabel.Size = new System.Drawing.Size(66, 22);
+            this.pongLabel.Size = new System.Drawing.Size(74, 22);
             this.pongLabel.TabIndex = 8;
             this.pongLabel.Text = "P O N G";
             // 
             // pacLabel
             // 
             this.pacLabel.AutoSize = true;
-            this.pacLabel.BackColor = System.Drawing.Color.Black;
-            this.pacLabel.Font = new System.Drawing.Font("Rosewood Std Regular", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pacLabel.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.pacLabel.Font = new System.Drawing.Font("Stencil", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pacLabel.ForeColor = System.Drawing.Color.Red;
             this.pacLabel.Location = new System.Drawing.Point(533, 249);
             this.pacLabel.Name = "pacLabel";
-            this.pacLabel.Size = new System.Drawing.Size(105, 22);
+            this.pacLabel.Size = new System.Drawing.Size(120, 22);
             this.pacLabel.TabIndex = 9;
             this.pacLabel.Text = "P A C - M A N";
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.titleLabel.Font = new System.Drawing.Font("Stencil", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.ForeColor = System.Drawing.Color.Silver;
+            this.titleLabel.Location = new System.Drawing.Point(202, 50);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(354, 25);
+            this.titleLabel.TabIndex = 10;
+            this.titleLabel.Text = "PRESS A BUTTON BELOW TO START ";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // theUltimateArcade
             // 
@@ -115,6 +134,7 @@
             this.BackgroundImage = global::WindowsFormsApplication1.Properties.Resources.plastic_texture;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(746, 484);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.pacLabel);
             this.Controls.Add(this.pongLabel);
             this.Controls.Add(this.snakeLabel);
@@ -124,7 +144,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "theUltimateArcade";
             this.Text = "The Ultimate Arcade";
-            this.Load += new System.EventHandler(this.theUltimateArcade_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.theUltimateArcade_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -142,6 +161,8 @@
         private System.Windows.Forms.Label snakeLabel;
         private System.Windows.Forms.Label pongLabel;
         private System.Windows.Forms.Label pacLabel;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
